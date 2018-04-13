@@ -39,4 +39,12 @@ describe('Test d\'update ', ()=> {
         assertTitle(book.findByIdAndUpdate(bouquin._id, {title:NewTitle}), done );
     })
 
+    it ('recherche d un livre et incremente son nombre de pages', (done)=> {
+         book.update({title:"planete chien"}, {$inc: {TotalPages:3}})
+         .then( ()=> book.findOne({title:"planete chien"}))
+         .then( book => { 
+             assert(book.TotalPages===3);
+             done();
+         });
+    });
 });
