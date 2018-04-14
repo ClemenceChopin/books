@@ -17,8 +17,11 @@ before((done) =>{
 });
 
 beforeEach("Supprime les anciens livres",(done) =>{
-    const books = mongoose.connection.collections.books;
+    const {books,users} = mongoose.connection.collections;
     books.drop( () => {
-         done();
+        users.drop( () => {
+            done();
+        })
     })
 });
+
