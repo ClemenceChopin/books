@@ -7,6 +7,10 @@ const UserShema = new Schema({
         books : [bookSchema]
 }); 
 
+UserShema.virtual('countBooks').get(function(){
+    return this.books.length;
+});
+
 const userModel = mongoose.model('user', UserShema);
 
 module.exports = userModel;

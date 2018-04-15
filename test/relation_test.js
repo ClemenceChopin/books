@@ -34,23 +34,21 @@ describe('Test de relation', ()=> {
         ); 
     });
 
-
     it('supression d\'un livre d\'un user' , (done)=> {
         const user1 = new User({
-                nom : 'boby',
+                nom : 'bob',
                 books: [
                     {title:'Game of throne'},
                     {title:'Les sentiers de l\'utopie'}
                 ]
         });
-
+        
         user1.books[0].remove();
-        user1.save().then(()=> User.findOne({nom:'boby'}) 
+        user1.save().then(()=> User.findOne({nom:'bob'}) 
                 .then((user) => {
                 assert(user.books.length==1);
                 done();
             })
         ); 
     });
-
 }); 
