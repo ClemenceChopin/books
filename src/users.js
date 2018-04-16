@@ -4,7 +4,11 @@ const bookSchema = require('./books').schema;
 
 const UserShema = new Schema({
         nom: String,
-        books : [bookSchema]
+        books : [bookSchema],
+        blogBooks : [{
+            type:Schema.Types.ObjectId,
+            ref : 'blogBook'
+        }]
 }); 
 
 UserShema.virtual('countBooks').get(function(){
