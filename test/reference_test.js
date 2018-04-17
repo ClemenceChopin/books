@@ -7,7 +7,6 @@ const BlogBook = require('../src/blogbooks');
 describe('Test de reference', ()=> {
     let user,blogBook,comment;
     beforeEach( (done) => {
-
         user = new User({
             nom:'Robin'
         });
@@ -45,7 +44,6 @@ describe('Test de reference', ()=> {
                 model: 'comment'
             }
         }).then( (user) => {
-            console.log(user.blogBooks[0]);
             assert(user.blogBooks[0].comment[0].content==='chouette manga' );
             done();
         });
